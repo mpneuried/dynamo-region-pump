@@ -1,19 +1,5 @@
-tcs_migrate-media-api
+dynamo-region-pump
 =====================
 
-Migration script to pump the media-api data from the Python based solution with AWS SimpleDB to the NodeJS base solution with the Dynamo Backend
+Pump the dynamo data from one region/table to another.
 
-
-Sonderfälle: 
-
----
-
-"tcs_TAGS": "Mandy Walter"
-
--> 
-
-properties: 
-	author: "Mandy Walter"
-
----
-"tcs_TAGS": "Mandy Walter" -> muss url decoded werden

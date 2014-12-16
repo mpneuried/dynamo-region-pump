@@ -34,7 +34,6 @@
     "grunt-include-replace": "*"
   },
   "bin": {
-    "media-api-migrate": "./bin/migrate",
-    "media-api-deletedomain": "./bin/deletedomain"
+    "dynamo-region-pump": "./bin/pump"
   }
 }
