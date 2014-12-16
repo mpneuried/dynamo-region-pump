@@ -1,0 +1,8 @@
+$ cat .gitignore
+
+*.DS_Store
+/_src
+/_docs
+Gruntfile.*
+config*.json
+db.json

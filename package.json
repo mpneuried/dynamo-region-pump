@@ -1,0 +1,40 @@
+{
+  "author": "mp, <mp@tcs.de> (www.tcs.de)",
+  "name": "dynamo-region-pump",
+  "description": "TCS DynamoDB region pump. This modules can pump Data from one regio to another at maximum speed.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mpneuried/dynamo-region-pump",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mpneuried/dynamo-region-pump.git"
+  },
+  "engines": {
+    "node": "> 0.10.20"
+  },
+  "dependencies": {
+    "async": "0.9.x",
+    "aws-sdk": "2.x",
+    "cli": "0.6.x",
+    "entities": "1.1.x",
+    "extend": "1.2.x",
+    "lodash": "2.4.x",
+    "lowdb": "0.3.x",
+    "mpbasic": "0.0.x",
+    "multimeter": "0.1.x",
+    "prompt": "^0.2.14",
+    "request": "2.42.x",
+    "rsmq": "0.3.x",
+    "task-queue-worker": "0.1.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-regarde": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-include-replace": "*"
+  },
+  "bin": {
+    "media-api-migrate": "./bin/migrate",
+    "media-api-deletedomain": "./bin/deletedomain"
+  }
+}
