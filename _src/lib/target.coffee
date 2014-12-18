@@ -105,6 +105,20 @@ class Target extends require( "mpbasic" )( config )
 				cba()
 			return
 
+	descibeTable: ( shared, next, error, fns )=>
+		_params = 
+			TableName: @config.table
+
+		@client.describeTable _params, ( err, raw )=>
+			if err
+				error( err )
+				return
+			console.log "TARGET:  Items:",raw.Table.ItemCount, " - Size:", raw.Table.TableSizeBytes ," bytes \n"
+			next()
+			return
+
+		return
+
 	writeBatch: ( datas, fnAddData, cb )=>
 		_datas = []
 		for tuple in datas

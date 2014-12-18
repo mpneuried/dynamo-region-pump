@@ -28,9 +28,9 @@ exports.run = ->
 		loadbar = multi(20,7, { width: 70 })
 		writebar = multi(20,8, { width: 70 })
 		_cnf =
-			migration:
+			pump:
 				since: options.since
-		
+
 		_cnf.source = {} if not _cnf.source
 		_cnf.source.accessKeyId = options.source_accesskey if options.source_accesskey?.length
 		_cnf.source.secretAccessKey = options.source_secret if options.source_secret?.length

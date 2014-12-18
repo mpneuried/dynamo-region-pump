@@ -44,7 +44,7 @@ class Source extends require( "mpbasic" )( config )
 			if err
 				error( err )
 				return
-			console.log "\nSOURCE:", "\nItems:",raw.Table.ItemCount, "\nSize:", raw.Table.TableSizeBytes ," bytes \n"
+			console.log "SOURCE:  Items:",raw.Table.ItemCount, " - Size:", raw.Table.TableSizeBytes ," bytes \n"
 			next()
 			return
 
@@ -63,10 +63,18 @@ class Source extends require( "mpbasic" )( config )
 		# TODO `since` filter
 		_params = 
 			TableName: @config.table
-		_params.ExclusiveStartKey = ExclusiveStartKey if ExclusiveStartKey?
-
-		@client.scan _params, ( err, raw )=>
 			
+
+		if since?
+				_params.ScanFilter = 
+					crd: 
+						ComparisonOperator: "GT"
+						AttributeValueList: [
+								N: since.toString()
+							]
+
+		_params.ExclusiveStartKey = ExclusiveStartKey if ExclusiveStartKey?
+		@client.scan _params, ( err, raw )=>
 			@debug "select: items received: #{raw.Items?.length or "-"}", raw.LastEvaluatedKey
 			if err
 				cb( err )

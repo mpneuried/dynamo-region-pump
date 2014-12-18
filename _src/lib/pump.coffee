@@ -11,7 +11,6 @@ targetdb = require( "./target" )
 module.exports = class Pump extends require( "mpbasic" )( config )
 	defaults: =>
 		return @extend {}, super, 
-			domain: null
 			since: null
 
 	constructor: ->
@@ -86,7 +85,7 @@ module.exports = class Pump extends require( "mpbasic" )( config )
 			sourcedata: []
 		}
 		fnEnd = @onEnd( cb )
-		@middleware @shared, sourcedb.descibeTable, @loadData(), ( err, shared )=>
+		@middleware @shared, sourcedb.descibeTable, targetdb.descibeTable, @loadData(), ( err, shared )=>
 			if err
 				fnEnd( err )
 				return
